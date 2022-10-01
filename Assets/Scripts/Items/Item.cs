@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public abstract class Item : MonoBehaviour, IItem
 {
+    [SerializeField] private Sprite _icon;
+
     private Camera _camera;
     private PlayerMovement _playerMovement;
     private ItemHolder _itemHolder;
     private bool _canTake = false;
+
+    public Sprite Icon { get => _icon;}
 
     private void Awake()
     {
