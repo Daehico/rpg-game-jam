@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Dialogs.UI;
 using UnityEngine;
@@ -10,6 +9,7 @@ namespace Dialogs
     {
         [SerializeField] private DialogView _view;
         [SerializeField] private List<DialogObject> _dialogs;
+        [SerializeField] private UnityEvent _onDialogEvent;
         
         private void OnValidate()
         {
