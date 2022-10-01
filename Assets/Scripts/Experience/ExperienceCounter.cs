@@ -8,6 +8,8 @@ namespace Experience
         private int _total;
 
         public event UnityAction<int> OnAdd;
+
+        public int Total => _total;
         
         public void AddExperience(int value)
         {
