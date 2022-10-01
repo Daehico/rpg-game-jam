@@ -24,6 +24,11 @@ public class PlayerHealth : MonoBehaviour
         }
 
         _currenHealth -= damage;
+
+        if(_currenHealth <= 0)
+        {
+            Die();
+        }
     }
 
     public void Treatment(int healHealth)
@@ -46,5 +51,10 @@ public class PlayerHealth : MonoBehaviour
     {
         _maxHealth += _strength * _healthForOneStrength;
         _currenHealth = _maxHealth;
+    }
+
+    private void Die()
+    {
+        Debug.Log("ГГ вы проебали");
     }
 }

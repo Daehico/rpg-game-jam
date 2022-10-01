@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -21,6 +22,11 @@ public class Enemy : MonoBehaviour
         }
 
         _currentHealth -= damage;
+
+        if(_currentHealth <= 0)
+        {
+            Die();
+        }
     }
 
     public void Treatment(int healHealth)
@@ -38,8 +44,19 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void MakeDamage()
+    public void MakeDamage(PlayerHealth playerHealth)
     {
+        StartCoroutine(AttackWithDelay(playerHealth));
+    }
 
+    private IEnumerator AttackWithDelay(PlayerHealth playerHealth)
+    {
+        yield return new WaitForSeconds(3f);
+        playerHealth.ApplyDamage(_damage);
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
     }
 }
