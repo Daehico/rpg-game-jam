@@ -14,7 +14,7 @@ namespace Experience
         public void AddExperience(int value)
         {
             _total += value;
-            Debug.Log("Add " + value + " experiance. Total = " + _total);
+            Debug.Log("Add " + value + " experience. Total = " + _total);
             OnAdd?.Invoke(value);
         }
     }

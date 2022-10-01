@@ -8,7 +8,7 @@ namespace Experience
 
         [SerializeField] private int _experience;
         
-        private void Awake()
+        protected virtual void Awake()
         {
             _counter = FindObjectOfType<ExperienceCounter>();
         }
