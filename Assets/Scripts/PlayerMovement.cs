@@ -3,7 +3,6 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
     [SerializeField] private Camera _camera;
     [SerializeField] private NavMeshAgent _agent;
 
