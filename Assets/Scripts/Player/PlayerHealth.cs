@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
+using Upgrade;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, IUpgradable
 {
     [SerializeField] private int _basicHealth;
     [SerializeField] private int _healthForOneStrength;
@@ -10,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     private int _maxHealth;
     private int _currenHealth;
 
-    public void SetStrength(int strength)
+    public void Upgrade(int strength)
     {
         _strength = strength;
         SetMaxHealth();
