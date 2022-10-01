@@ -1,18 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _player;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private NavMeshAgent _agent;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Input.GetMouseButton(1))
+        {
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+
+            if(Physics.Raycast(ray, out RaycastHit raycastHit))
+            {
+                _agent.SetDestination(raycastHit.point);
+            }
+        }
     }
 }
