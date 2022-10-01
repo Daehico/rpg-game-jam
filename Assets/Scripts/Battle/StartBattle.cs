@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(EnemyHealth))]
 public class StartBattle : MonoBehaviour
 {
-    private Enemy _enemy;
+    private EnemyHealth _enemyHealth;
 
     private void Awake()
     {
-        _enemy = GetComponent<Enemy>();
+        _enemyHealth = GetComponent<EnemyHealth>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.TryGetComponent(out PlayerHealth playerHealth))
         {
-            _enemy.MakeDamage(playerHealth);
-            playerHealth.GetComponent<PlayerAttack>().StartBattle(_enemy);
+            _enemyHealth.MakeDamage(playerHealth);
+            playerHealth.GetComponent<PlayerAttack>().StartBattle(_enemyHealth);
         }
     }
 }
