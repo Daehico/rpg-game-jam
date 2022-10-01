@@ -7,7 +7,7 @@ namespace Experience
     {
         private int _total;
 
-        public event UnityAction<int> OnAdd;
+        public event UnityAction OnChange;
 
         public int Total => _total;
         
@@ -15,7 +15,13 @@ namespace Experience
         {
             _total += value;
             Debug.Log("Add " + value + " experience. Total = " + _total);
-            OnAdd?.Invoke(value);
+            OnChange?.Invoke();
+        }
+
+        public void Reset()
+        {
+            _total = 0;
+            OnChange?.Invoke();
         }
     }
 }
