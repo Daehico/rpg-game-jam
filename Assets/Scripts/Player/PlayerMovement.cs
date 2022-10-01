@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public void CantMove()
     {
         _canMove = false;
+        _animator.SetBool(RunAnimation, false);
     }
 
     private void Update()
