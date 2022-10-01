@@ -1,4 +1,5 @@
 using System;
+using Enemy;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerMovement))]
@@ -8,7 +9,7 @@ public class PlayerAttack : MonoBehaviour
 
     private bool _isInBattle = false;
     private PlayerDamage _damage;
-    private Enemy _enemy;
+    private EnemyHealth _enemyHealth;
     private PlayerMovement _playerMovement;
 
     private void Awake()
@@ -17,12 +18,12 @@ public class PlayerAttack : MonoBehaviour
         _playerMovement = GetComponent<PlayerMovement>();
     }
 
-    public void StartBattle(Enemy enemy)
+    public void StartBattle(EnemyHealth enemyHealth)
     {
-        if (enemy == null)
+        if (enemyHealth == null)
             throw new NullReferenceException("Enemy can't be null");
 
-        _enemy = enemy;
+        _enemyHealth = enemyHealth;
         _isInBattle = true;
     }
 
@@ -36,9 +37,9 @@ public class PlayerAttack : MonoBehaviour
 
                 if (Physics.Raycast(ray, out RaycastHit raycastHit))
                 {
-                    if (_enemy.transform == raycastHit.transform)
+                    if (_enemyHealth.transform == raycastHit.transform)
                     {
-                        _enemy.ApplyDamage(_damage.Damage);
+                        _enemyHealth.ApplyDamage(_damage.Damage);
                         _playerMovement.CantMove();
                     }
                 }              
