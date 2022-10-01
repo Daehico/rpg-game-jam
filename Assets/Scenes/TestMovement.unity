@@ -2288,6 +2288,19 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2938159498257053829, guid: 1c858f66e70c867478879a68bce42677, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'LeftShoulder'\n\tTransform 'LeftFoot'\n\tTransform
+        'Spine1'\n\tTransform 'RightFoot'\n\tTransform 'RightHand'\n\tTransform 'Head'\n\tTransform
+        'LeftLeg'\n\tTransform 'Spine'\n\tTransform 'RightShoulder'\n\tTransform
+        'RightUpLeg'\n\tand more ...\n\tFrom animation clip 'Idle'"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2938159498257053829, guid: 1c858f66e70c867478879a68bce42677, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2938159498266400497, guid: 1c858f66e70c867478879a68bce42677, type: 3}
       propertyPath: m_RootOrder
       value: 1

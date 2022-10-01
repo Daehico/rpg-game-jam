@@ -1,12 +1,21 @@
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Camera _camera;
     [SerializeField] private NavMeshAgent _agent;
 
+    private const string RunAnimation = "IsRun";
+
+    private Animator _animator;
     private bool _canMove = true;
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void CanMove()
     {
@@ -27,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
             if(Physics.Raycast(ray, out RaycastHit raycastHit) && _canMove == true)
             {
                 _agent.SetDestination(raycastHit.point);
+                _animator.SetBool(RunAnimation, true);
             }
         }
 
