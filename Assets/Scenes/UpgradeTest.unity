@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 180170945}
   - component: {fileID: 180170944}
   - component: {fileID: 180170943}
+  - component: {fileID: 180170949}
   - component: {fileID: 180170942}
   - component: {fileID: 180170946}
   - component: {fileID: 180170947}
@@ -265,6 +266,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _basicHealth: 0
+  _healthForOneStrength: 0
+--- !u!114 &180170949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180170941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc728f781a2f3848baabb06bb135b78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _basicHealth: 0
+  _healthForOneStrength: 0
 --- !u!1 &384121590
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +560,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1697395023}
         m_TargetAssemblyTypeName: Upgrade.Upgrader, Assembly-CSharp
         m_MethodName: Upgrade
         m_Mode: 1
@@ -789,9 +805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f0a984d4f8b9584a8f09b9e978af31f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startValue: 0
-  _increaseFactor: 0
-  _upgradableBehaviour: {fileID: 0}
+  _startValue: 100
+  _increaseFactor: 0.2
+  _upgradableBehaviour: {fileID: 180170949}
 --- !u!1 &1744833806
 GameObject:
   m_ObjectHideFlags: 0

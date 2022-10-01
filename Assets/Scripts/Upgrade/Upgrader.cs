@@ -1,20 +1,14 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Upgrade
 {
-   
-    public interface IUpgradable
-    {
-        void Upgrade(int value);
-    } 
-    
     public class Upgrader : MonoBehaviour
     {
         private int _level;
 
-        [Min(0), SerializeField] private int _startValue, _increaseFactor;
+        [Min(0), SerializeField] private int _startValue;
+        [Min(0), SerializeField] private float _increaseFactor;
 
         [SerializeField] private MonoBehaviour _upgradableBehaviour;
         private IUpgradable UpgradableInterface => 
@@ -26,7 +20,7 @@ namespace Upgrade
         {
             if (_upgradableBehaviour is IUpgradable == false)
             {
-                Debug.LogError(_upgradableBehaviour.name + " needs to implement " + nameof(IUpgradable));
+                Debug.LogError(_upgradableBehaviour.name + " needs to implement " + nameof(IUpgradable), this);
                 _upgradableBehaviour = null;
             }
         }
@@ -43,7 +37,8 @@ namespace Upgrade
 
         private int CalculateValue()
         {
-            return _startValue + _startValue * _level * _increaseFactor;
+            var increase = (int)(_startValue * _level * _increaseFactor);
+            return _startValue + increase;
         }
         
         public void Upgrade()
