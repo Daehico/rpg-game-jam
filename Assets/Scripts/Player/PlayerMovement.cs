@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public void CantMove()
     {
         _canMove = false;
+        _animator.SetBool(RunAnimation, false);
     }
 
     private void Update()
@@ -33,11 +34,16 @@ public class PlayerMovement : MonoBehaviour
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            if(Physics.Raycast(ray, out RaycastHit raycastHit) && _canMove == true)
+            if (Physics.Raycast(ray, out RaycastHit raycastHit) && _canMove == true)
             {
                 _agent.SetDestination(raycastHit.point);
                 _animator.SetBool(RunAnimation, true);
             }
+        }
+
+        if (Vector3.Distance(transform.position, _agent.destination) <= 0.5f)
+        {
+            _animator.SetBool(RunAnimation, false);
         }
 
         _agent.isStopped = !_canMove;
