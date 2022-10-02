@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour, IUpgradable
         _animator = GetComponent<Animator>();
         _cameraPlacer = FindObjectOfType<CameraPlacer>();
         _camera = FindObjectOfType<Camera>();
-        //_cameraPlacer.SetPosition(transform);
+        _cameraPlacer.SetPosition(transform);
     }
 
     private void Update()
