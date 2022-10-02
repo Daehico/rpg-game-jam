@@ -10,10 +10,11 @@ public class StreamOfBlood : Spell
 
     private const string StreamOfBloodAnimation = "StreamOfBloodAnimation";
 
-    public override void Cast(Enemy.EnemyHealth target)
+    protected override void Cast(Enemy.EnemyHealth target)
     {
-        var mover = Instantiate(TemplateSpell, _shootPoint).GetComponent<SpellMover>();
-        mover.Init(target.transform, _damage);
+        var mover = Instantiate(TemplateSpell, _shootPoint.position, Quaternion.identity).GetComponent<SpellMover>();
+        mover.Init(target.transform);
+        target.ApplyDamage(_damage);
         StartCoroutine(AnimationDelay(_animator.GetCurrentAnimatorClipInfo(0).Length));
     }
 

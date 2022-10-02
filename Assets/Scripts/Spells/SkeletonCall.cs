@@ -9,7 +9,7 @@ public class SkeletonCall : Spell
 
     private const string SkeletonCallAnimation = "SkeletonCallAnimation";
 
-    public override void Cast(EnemyHealth target)
+    protected override void Cast(EnemyHealth target)
     {
         Instantiate(TemplateSpell, target.transform);
         StartCoroutine(AnimationDelay(_animator.GetCurrentAnimatorClipInfo(0).Length));

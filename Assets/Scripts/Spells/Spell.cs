@@ -5,6 +5,7 @@ public abstract class Spell : MonoBehaviour
 {
     [SerializeField] private protected float Cooldown;
     [SerializeField] private protected GameObject TemplateSpell;
+    [SerializeField] private float _minAttackDistance = 4f;
 
     private protected bool CanCast = false;
 
@@ -27,7 +28,7 @@ public abstract class Spell : MonoBehaviour
             ÑooldownCounter();
     }
 
-    public abstract void Cast(Enemy.EnemyHealth target);
+    protected abstract void Cast(Enemy.EnemyHealth target);
 
     public void Unlock()
     {
@@ -39,18 +40,27 @@ public abstract class Spell : MonoBehaviour
         _target = target;
     }
 
-    public void PrepareToCast(Enemy.EnemyHealth target)
+    public void PrepareToCast()
     {
-        if (target != null)
+        if (_target != null)
         {
             if (CanCast)
             {
-                _timeRemaining = Cooldown;
-                CanCast = false;
-                Cast(target);
+                if(IsAttckDistance(_target.transform.position))
+                {
+                    _timeRemaining = Cooldown;
+                    CanCast = false;
+                    Cast(_target);
+                }             
             }          
         }
-    }  
+    }
+
+    private bool IsAttckDistance(Vector3 enemyPosition)
+    {
+        var distance = (enemyPosition - transform.position).magnitude;
+        return distance < _minAttackDistance;
+    }
 
     private void ÑooldownCounter()
     {

@@ -11,7 +11,7 @@ public class Telekinesis : Spell
 
     private const string TelekinesisAnimation = "TelekinesisAnimation";
 
-    public override void Cast(EnemyHealth target)
+    protected override void Cast(EnemyHealth target)
     {
         StartCoroutine(AnimationDelay(_animator.GetCurrentAnimatorClipInfo(0).Length));
         StartCoroutine(MoveObject(target.gameObject.transform));
