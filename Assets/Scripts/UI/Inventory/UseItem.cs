@@ -42,5 +42,6 @@ public class UseItem : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Equip();
+        Destroy(gameObject);
     }
 }
