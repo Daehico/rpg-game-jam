@@ -21,6 +21,7 @@ public class PlayerAttack : MonoBehaviour
         _damage = FindObjectOfType<PlayerDamage>();
         _playerMovement = GetComponent<PlayerMovement>();
         _animator = GetComponent<Animator>();
+        _camera = FindObjectOfType<Camera>();
     }
 
     public void StartBattle(EnemyHealth enemyHealth)
