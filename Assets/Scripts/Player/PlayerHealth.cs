@@ -74,6 +74,8 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
             Die();
         }
 
+        Debug.Log(_currenHealth);
+
         SetProgressBar();
     }
 

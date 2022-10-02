@@ -5129,6 +5129,7 @@ GameObject:
   - component: {fileID: 3447056068738538194}
   - component: {fileID: 7047193594043678599}
   - component: {fileID: 7047193594043678598}
+  - component: {fileID: 173352394218089962}
   m_Layer: 0
   m_Name: PlayerWarlock
   m_TagString: Untagged
@@ -5144,7 +5145,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515835749184469495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 143.67, y: 35.81533, z: 278.5413}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5363,6 +5364,18 @@ MonoBehaviour:
   _player: {fileID: 7047193594043678597}
   _heal: 10
   _particlePoint: {fileID: 2490067166703226159}
+--- !u!114 &173352394218089962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515835749184469495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a73931421140b8c40867e50bc8b5fcbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1515835749184469497
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,7 +26,7 @@ public class EnemyLootNote : MonoBehaviour
 
     public void Drop()
     {
-        int randomItemIndex =  Random.Range(0, _items.Length - 1);
+        int randomItemIndex =  Random.Range(0, _items.Length);
         Instantiate(_items[randomItemIndex], new Vector3(transform.position.x + Random.Range(1, 5), transform.position.y, transform.position.z + Random.Range(1, 3)), Quaternion.identity);
 
         if(_requirdItem != null)

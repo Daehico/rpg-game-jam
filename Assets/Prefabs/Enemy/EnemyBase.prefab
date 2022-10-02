@@ -191,6 +191,8 @@ GameObject:
   - component: {fileID: 6677746948225181458}
   - component: {fileID: 6677746948225179885}
   - component: {fileID: 6677746948225181459}
+  - component: {fileID: 5656619371545277006}
+  - component: {fileID: 8546170318410948782}
   m_Layer: 0
   m_Name: EnemyBase
   m_TagString: Untagged
@@ -241,7 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff466ff4dd49bec42a447b77fcfb412d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
+  _maxHealth: 30
 --- !u!114 &6677746948225179884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed261490ff062874095093b32efa9575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
+  _damage: 10
 --- !u!54 &6677746948225181458
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -307,6 +309,37 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5656619371545277006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677746948225179874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1589904ec146c242b32978d6ee02899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items:
+  - {fileID: 3426827020272461249, guid: 19094066e9cf6a64e8178c7b4ea4aea7, type: 3}
+  - {fileID: 6185693481512437168, guid: c891c437ab3a084438f402ce1a0e3ef8, type: 3}
+  - {fileID: 4066803655140884367, guid: 4e3fa16ef2848664182fd581e5d94f26, type: 3}
+  _requirdItem: {fileID: 0}
+--- !u!114 &8546170318410948782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6677746948225179874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f26bdb29eb5fd64ab09baeb299c7449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _experience: 50
+  _enemyHealth: {fileID: 6677746948225179887}
 --- !u!1 &6677746949403710220
 GameObject:
   m_ObjectHideFlags: 0
