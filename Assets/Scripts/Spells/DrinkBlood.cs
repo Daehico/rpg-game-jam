@@ -11,7 +11,7 @@ public class DrinkBlood : Spell
     [SerializeField] private int _heal;
     [SerializeField] private Transform _particlePoint;
 
-    private const string DrinkBloodAnimation = "DrinkBloodAnimation";
+    private const string StreamOfBloodAnimation = "StreamOfBloodAnimation";
 
     protected override void Cast(Enemy.EnemyHealth target)
     {
@@ -23,10 +23,10 @@ public class DrinkBlood : Spell
 
     private IEnumerator AnimationDelay(float delay)
     {
-        _animator.SetBool(DrinkBloodAnimation, true);
+        _animator.SetBool(StreamOfBloodAnimation, true);
 
         yield return new WaitForSeconds(delay);
 
-        _animator.SetBool(DrinkBloodAnimation, false);
+        _animator.SetBool(StreamOfBloodAnimation, false);
     }
 }

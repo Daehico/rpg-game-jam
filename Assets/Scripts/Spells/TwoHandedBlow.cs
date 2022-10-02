@@ -8,7 +8,7 @@ public class TwoHandedBlow : Spell
     [SerializeField] private Animator _animator;
     [SerializeField] private int _damage;
 
-    private const string TwoHandedBlowAnimation = "TwoHandedBlowAnimation";
+    private const string IsAttack = "isAttack";
 
     protected override void Cast(EnemyHealth target)
     {
@@ -20,10 +20,10 @@ public class TwoHandedBlow : Spell
 
     private IEnumerator AnimationDelay(float delay)
     {
-        _animator.SetBool(TwoHandedBlowAnimation, true);
+        _animator.SetBool(IsAttack, true);
 
         yield return new WaitForSeconds(delay);
 
-        _animator.SetBool(TwoHandedBlowAnimation, false);
+        _animator.SetBool(IsAttack, false);
     }
 }
