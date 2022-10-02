@@ -1,4 +1,3 @@
-using System.Threading;
 using Enemy;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,8 +8,8 @@ public class PlayerAttack : MonoBehaviour
     private PlayerDamage _damage;
     private PlayerMovement _playerMovement;
     private float _time, _cooldown = 1f;
+    private Camera _camera;
 
-    [SerializeField] private Camera _camera;
     [SerializeField] private float _minAttackDistance = 4f;
     
     public event UnityAction<EnemyHealth> OnAttack;
@@ -18,6 +17,7 @@ public class PlayerAttack : MonoBehaviour
     private void Awake()
     {
         _damage = FindObjectOfType<PlayerDamage>();
+        _camera = FindObjectOfType<Camera>();
         _playerMovement = GetComponent<PlayerMovement>();
     }
 

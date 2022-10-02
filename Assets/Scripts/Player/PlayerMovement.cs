@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 {
     private const string RunAnimation = "IsRun";
     
-    [SerializeField] private Camera _camera;
-    [SerializeField] private NavMeshAgent _agent;
-
     private Animator _animator;
     private CameraPlacer _cameraPlacer;
     private float _cooldownTime;
+    private Camera _camera;
+
+    [SerializeField] private NavMeshAgent _agent;
 
     public bool CanMove => _cooldownTime < Time.time;
     
