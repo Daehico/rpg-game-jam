@@ -7,15 +7,17 @@ using UnityEngine;
 public class DrinkBlood : Spell
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private Transform _player;
+    [SerializeField] private PlayerHealth _player;
     [SerializeField] private int _heal;
+    [SerializeField] private Transform _particlePoint;
 
     private const string DrinkBloodAnimation = "DrinkBloodAnimation";
 
-    public override void Cast(Enemy.EnemyHealth target)
+    protected override void Cast(Enemy.EnemyHealth target)
     {
-        var mover = Instantiate(TemplateSpell, target.transform).GetComponent<SpellMover>(); ;
-        mover.Init(_player, _heal);
+        var mover = Instantiate(TemplateSpell, target.transform.position, Quaternion.identity).GetComponent<SpellMover>(); ;
+        mover.Init(_particlePoint.transform);
+        _player.Treatment(_heal);
         StartCoroutine(AnimationDelay(_animator.GetCurrentAnimatorClipInfo(0).Length));
     }
 

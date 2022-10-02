@@ -11,7 +11,7 @@ public class Cannibalism : Spell
 
     private const string CannibalismAnimation = "CannibalismAnimation";
 
-    public override void Cast(EnemyHealth target)
+    protected override void Cast(EnemyHealth target)
     {
         Instantiate(TemplateSpell, target.transform);
         _playerHealth.Treatment(_heal);

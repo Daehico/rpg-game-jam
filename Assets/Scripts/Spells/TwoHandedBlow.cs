@@ -10,7 +10,7 @@ public class TwoHandedBlow : Spell
 
     private const string TwoHandedBlowAnimation = "TwoHandedBlowAnimation";
 
-    public override void Cast(EnemyHealth target)
+    protected override void Cast(EnemyHealth target)
     {
         target.ApplyDamage(_damage);
         Instantiate(TemplateSpell, target.transform);

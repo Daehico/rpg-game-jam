@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1908495572093436450}
   - component: {fileID: 5097202092158149166}
   - component: {fileID: 812480175460616498}
-  - component: {fileID: 1499627668577732686}
   - component: {fileID: 8036328199784691760}
   m_Layer: 0
   m_Name: DrinkBlood
@@ -44,7 +43,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1531843972256544447}
   serializedVersion: 8
-  lengthInSec: 2
+  lengthInSec: 5
   simulationSpeed: 1
   stopAction: 2
   cullingMode: 3
@@ -190,7 +189,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.31625938, g: 0.6981132, b: 0.16135636, a: 1}
+      maxColor: {r: 0.8509804, g: 0.4090283, b: 0.14117648, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4635,7 +4634,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa58dad3785d0ff4e8b6e99051d4c5fc, type: 2}
+  - {fileID: 2100000, guid: e5e67938d1d0eca42b54e0fe90cb342a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4705,8 +4704,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.099999994
+      time: -0.12083435
+      value: 0.3356262
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -4758,19 +4757,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   AproximatedFlyDistance: -1
---- !u!135 &1499627668577732686
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531843972256544447}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8036328199784691760
 MonoBehaviour:
   m_ObjectHideFlags: 0
