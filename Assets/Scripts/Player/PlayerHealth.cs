@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
     private int _strength;
     private int _maxHealth;
     private int _currenHealth;
+    private PlayerEquip _playerEqip;
+    private int _armor;
 
     private void Awake()
     {
@@ -24,6 +26,24 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
         _currenHealth = _maxHealth;
 
         _progressBar.fillAmount = _currenHealth;
+        _playerEqip = FindObjectOfType<PlayerEquip>();
+    }
+
+
+    private void OnEnable()
+    {
+        _playerEqip.ArmorSet += ChangeArmor;
+    }
+
+    private void OnDisable()
+    {
+        _playerEqip.ArmorSet -= ChangeArmor;
+    }
+
+    private void ChangeArmor()
+    {
+        Armor armor = _playerEqip.Armor as Armor;
+        _armor = armor.ArmorNumber;
     }
 
     public void Upgrade(int strength)
@@ -39,7 +59,12 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
             throw new ArgumentOutOfRangeException("Damage can not be negative");
         }
 
-        _currenHealth -= damage;
+        if(_armor == 0)
+        {
+            _armor = 1;
+        }
+
+        _currenHealth -= damage/_armor;
 
         if(_currenHealth <= 0)
         {
