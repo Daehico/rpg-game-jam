@@ -3210,7 +3210,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 57fd1f6631604554e8a15b2858bd4308, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -3310,6 +3310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 0}
+  _minAttackDistance: 4
 --- !u!114 &1156856117227866010
 MonoBehaviour:
   m_ObjectHideFlags: 0
