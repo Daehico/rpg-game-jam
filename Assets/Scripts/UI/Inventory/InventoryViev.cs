@@ -46,7 +46,8 @@ public class InventoryViev : MonoBehaviour
         foreach(var item in _items)
         {
             _template.GetComponentInChildren<Image>().sprite = item.Icon;
-            Instantiate(_template, _panel.transform);
+            GameObject template = Instantiate(_template, _panel.transform);
+            template.GetComponent<UseItem>().SetItem(item as Item);
             _drawedItems.Add(item);           
         }
     }
