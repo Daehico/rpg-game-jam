@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 1975234355439996527}
   - component: {fileID: 1975234355439996526}
   - component: {fileID: 1975234355439996525}
+  - component: {fileID: 8014367771352473471}
   - component: {fileID: 1975234355439996524}
   m_Layer: 0
   m_Name: EnemyTest
@@ -158,6 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 0
+--- !u!114 &8014367771352473471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975234355439996515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1589904ec146c242b32978d6ee02899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _items: []
+  _requirdItem: {fileID: 0}
 --- !u!136 &1975234355439996524
 CapsuleCollider:
   m_ObjectHideFlags: 0
