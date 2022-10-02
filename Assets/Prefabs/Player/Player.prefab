@@ -3198,6 +3198,7 @@ Transform:
   - {fileID: 2863946471277443714}
   - {fileID: 1702473347681190132}
   - {fileID: 121230108660801169}
+  - {fileID: 2514164851603577571}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3270,7 +3271,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicHealth: 100
   _healthForOneStrength: 10
-  _progressBar: {fileID: 0}
 --- !u!54 &1042227252
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6716,3 +6716,66 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.07767773, y: 0.000000059604645, z: 0.023399219}
     m_Extent: {x: 1.0472512, y: 0.78477466, z: 0.30734664}
   m_DirtyAABB: 0
+--- !u!1 &8355570008117980218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2514164851603577571}
+  - component: {fileID: 8227836127111934302}
+  - component: {fileID: 6384760037757484319}
+  m_Layer: 0
+  m_Name: Upgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2514164851603577571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355570008117980218}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.017232, y: 0.68096316, z: -5.559186}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2938159498266400497}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8227836127111934302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355570008117980218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a5a3f111a764f43bf2341d069dd42c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startValue: 100
+  _increaseFactor: 0.1
+  _upgradableBehaviour: {fileID: 6630299028561562787}
+--- !u!114 &6384760037757484319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8355570008117980218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6cdd08cb0dbae1469187a19c4a54b1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startValue: 5
+  _increaseFactor: 0.5
+  _upgradableBehaviour: {fileID: 2938159498537617354}
