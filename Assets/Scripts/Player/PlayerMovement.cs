@@ -4,15 +4,17 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Animator))]
 public class PlayerMovement : MonoBehaviour
 {
+    private const string RunAnimation = "IsRun";
+    
     [SerializeField] private Camera _camera;
     [SerializeField] private NavMeshAgent _agent;
 
-    private const string RunAnimation = "IsRun";
-
     private Animator _animator;
-    private bool _canMove = true;
     private CameraPlacer _cameraPlacer;
+    private float _cooldownTime;
 
+    public bool CanMove => _cooldownTime < Time.time;
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -21,24 +23,13 @@ public class PlayerMovement : MonoBehaviour
         _cameraPlacer.SetPosition(transform);
     }
 
-    public void CanMove()
-    {
-        _canMove = true;
-    }
-
-    public void CantMove()
-    {
-        _canMove = false;
-        _animator.SetBool(RunAnimation, false);
-    }
-
     private void Update()
     {
         if (Input.GetMouseButton(1))
         {
             Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out RaycastHit raycastHit) && _canMove == true)
+            if (Physics.Raycast(ray, out RaycastHit raycastHit) && CanMove)
             {
                 _agent.SetDestination(raycastHit.point);
                 _animator.SetBool(RunAnimation, true);
@@ -50,6 +41,15 @@ public class PlayerMovement : MonoBehaviour
             _animator.SetBool(RunAnimation, false);
         }
 
-        _agent.isStopped = !_canMove;
+        _agent.isStopped = !CanMove;
+    }
+
+    public void MoveCooldown(float time)
+    {
+        if (time < _cooldownTime)
+            return;
+
+        _cooldownTime = time;
+        _animator.SetBool(RunAnimation, false);
     }
 }

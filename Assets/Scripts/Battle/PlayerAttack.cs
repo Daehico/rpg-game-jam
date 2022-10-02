@@ -34,15 +34,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 _time = Time.time + _cooldown;
                 enemyHealth.ApplyDamage(_damage.Damage);
-                _playerMovement.CantMove();
+                _playerMovement.MoveCooldown(_time);
                 OnAttack?.Invoke(enemyHealth);
                 Debug.Log("Attack " + _damage.Damage + " EnemyHealth = " + enemyHealth.CurrentHealth);
             }
-            else
-            {
-                _playerMovement.CanMove();
-            }
-            
         }
     }
 
