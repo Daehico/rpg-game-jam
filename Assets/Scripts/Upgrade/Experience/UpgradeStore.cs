@@ -8,7 +8,7 @@ namespace Upgrade.Experience
     {
         [SerializeField] private ExperienceLevel _experienceLevel;
 
-        public event UnityAction OnBuyHealth;
+        public event UnityAction OnBuyHealth, OnBuySpeed;
         
         private void OnValidate()
         {
@@ -22,6 +22,14 @@ namespace Upgrade.Experience
                 return;
             
             OnBuyHealth?.Invoke();
+        }
+
+        public void BuySpeed()
+        {
+            if (_experienceLevel.PointSpend() == false)
+                return;
+            
+            OnBuySpeed?.Invoke();
         }
     }
 }

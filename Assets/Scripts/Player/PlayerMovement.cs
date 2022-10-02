@@ -1,9 +1,10 @@
 using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
+using Upgrade;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IUpgradable
 {
     private const string RunAnimation = "IsRun";
     
@@ -61,5 +62,10 @@ public class PlayerMovement : MonoBehaviour
 
         _cooldownTime = time;
         Stop();
+    }
+
+    public void Upgrade(int value)
+    {
+        _agent.speed = value;
     }
 }
