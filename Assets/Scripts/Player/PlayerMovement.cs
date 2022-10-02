@@ -11,10 +11,14 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator _animator;
     private bool _canMove = true;
+    private CameraPlacer _cameraPlacer;
 
-    private void Awake()
+    private void Start()
     {
         _animator = GetComponent<Animator>();
+        _cameraPlacer = FindObjectOfType<CameraPlacer>();
+        _camera = FindObjectOfType<Camera>();
+        _cameraPlacer.SetPosition(transform);
     }
 
     public void CanMove()
