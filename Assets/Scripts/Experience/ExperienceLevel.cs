@@ -1,4 +1,5 @@
 using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,6 +12,7 @@ namespace Experience
         private int _points, _level;
             
         [SerializeField] private int _maxExperience;
+        [SerializeField] private TMP_Text _levelText;
 
         public event UnityAction OnLevelUp;
         
@@ -20,6 +22,7 @@ namespace Experience
         private void Awake()
         {
             _counter = GetComponent<ExperienceCounter>();
+            SetLevelText();
         }
 
         private void OnEnable()
@@ -44,6 +47,7 @@ namespace Experience
                 _counter.Reset();
                 _counter.AddExperience(remainder);
                 Debug.Log("LevelUp " + _level + ", points = " + _points);
+                SetLevelText();
             }
         }
 
@@ -54,6 +58,11 @@ namespace Experience
 
             _points--;
             return true;
+        }
+
+        private void SetLevelText()
+        {
+            _levelText.text = _level.ToString();
         }
     }
 }
