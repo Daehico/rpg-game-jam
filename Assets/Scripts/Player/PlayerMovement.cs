@@ -1,3 +1,4 @@
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,10 +11,14 @@ public class PlayerMovement : MonoBehaviour
     private CameraPlacer _cameraPlacer;
     private float _cooldownTime;
     private Camera _camera;
+    private Vector3 _target;
 
     [SerializeField] private NavMeshAgent _agent;
 
     public bool CanMove => _cooldownTime < Time.time;
+
+    private bool InTargetPoint =>
+        Vector3.Distance(transform.position, _agent.destination) <= 0.5f;
     
     private void Start()
     {
@@ -36,12 +41,17 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (Vector3.Distance(transform.position, _agent.destination) <= 0.5f)
+        if (InTargetPoint)
         {
             _animator.SetBool(RunAnimation, false);
         }
 
-        _agent.isStopped = !CanMove;
+        _agent.isStopped = !CanMove || InTargetPoint;
+    }
+
+    public void Stop()
+    {
+        _agent.SetDestination(transform.position);
     }
 
     public void MoveCooldown(float time)
@@ -50,6 +60,6 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         _cooldownTime = time;
-        _animator.SetBool(RunAnimation, false);
+        Stop();
     }
 }
