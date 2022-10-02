@@ -1,5 +1,6 @@
 using DuloGames.UI;
 using System;
+using Player;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Upgrade;
@@ -23,7 +24,13 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
         _maxHealth += _basicHealth + (_healthForOneStrength * _strength);
         _currenHealth = _maxHealth;
 
-        _progressBar.fillAmount = _currenHealth;
+        _progressBar = FindObjectOfType<HealthProgressBar>().ProgressBar;
+        SetProgressBar();
+    }
+
+    private void SetProgressBar()
+    {
+        _progressBar.fillAmount = _currenHealth / _maxHealth;
     }
 
     public void Upgrade(int strength)
@@ -46,7 +53,7 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
             Die();
         }
 
-        _progressBar.fillAmount = _currenHealth;
+        SetProgressBar();
     }
 
     public void Treatment(int healHealth)
