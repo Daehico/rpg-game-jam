@@ -3168,6 +3168,9 @@ GameObject:
   - component: {fileID: 1156856117227866010}
   - component: {fileID: 1042227255}
   - component: {fileID: 451957492883063822}
+  - component: {fileID: 1304148132940343796}
+  - component: {fileID: -3521679877309872920}
+  - component: {fileID: -5711385390418027172}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3267,6 +3270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _basicHealth: 100
   _healthForOneStrength: 10
+  _progressBar: {fileID: 0}
 --- !u!54 &1042227252
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3309,7 +3313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 215203d4fd6764b498192e7db4bf0913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minAttackDistance: 4
 --- !u!114 &1156856117227866010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,6 +3350,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 289104e0c1e62d04c8d3d1e8d25cd117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1304148132940343796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938159498266430161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf749a4ffff76834ab223e82df946853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerAttack: {fileID: 1042227250}
+  _spells:
+  - {fileID: -3521679877309872920}
+  - {fileID: -5711385390418027172}
+--- !u!114 &-3521679877309872920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938159498266430161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812f648c6b10d8941a57b26b81aab932, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 1
+  TemplateSpell: {fileID: 8911382603679255540, guid: dd1e023820c74f4429845ef9ab7273d0, type: 3}
+  _minAttackDistance: 4
+  _animator: {fileID: 2938159498257053829}
+  _damage: 10
+--- !u!114 &-5711385390418027172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2938159498266430161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9023f4e4a8f11214a96d7637166c8cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cooldown: 3
+  TemplateSpell: {fileID: 4662980643378243266, guid: 683b5dc8c31ac874b88669e8d28e3741, type: 3}
+  _minAttackDistance: 4
+  _animator: {fileID: 2938159498257053829}
+  _heal: 10
+  _playerHealth: {fileID: 6630299028561562787}
 --- !u!1 &2938159498266430163
 GameObject:
   m_ObjectHideFlags: 0
