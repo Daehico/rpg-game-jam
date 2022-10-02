@@ -46,5 +46,14 @@ namespace Experience
                 Debug.Log("LevelUp " + _level + ", points = " + _points);
             }
         }
+
+        public bool PointSpend()
+        {
+            if (Points == 0)
+                return false;
+
+            _points--;
+            return true;
+        }
     }
 }
