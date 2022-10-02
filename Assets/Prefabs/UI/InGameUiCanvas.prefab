@@ -33840,12 +33840,12 @@ GameObject:
   - component: {fileID: 9105767900738313520}
   - component: {fileID: 9105767900738313516}
   m_Layer: 5
-  m_Name: Window (Inventory)
+  m_Name: Inventory
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9105767900738313522
 RectTransform:
   m_ObjectHideFlags: 0

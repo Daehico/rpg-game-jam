@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class InventoryViev : MonoBehaviour
 {
     [SerializeField] private GameObject _panel;
-    [SerializeField] private Image _template;
+    [SerializeField] private GameObject _template;
 
     private OpenInventory _openInventory;
     private List<IItem> _items = new List<IItem>();
@@ -45,7 +45,7 @@ public class InventoryViev : MonoBehaviour
 
         foreach(var item in _items)
         {
-            _template.sprite = item.Icon;
+            _template.GetComponentInChildren<Image>().sprite = item.Icon;
             Instantiate(_template, _panel.transform);
             _drawedItems.Add(item);           
         }

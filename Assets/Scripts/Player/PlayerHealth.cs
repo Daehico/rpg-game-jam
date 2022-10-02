@@ -1,11 +1,13 @@
 using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Upgrade;
 
 public class PlayerHealth : MonoBehaviour, IUpgradable
 {
     [SerializeField] private int _basicHealth;
     [SerializeField] private int _healthForOneStrength;
+    [SerializeField] private ProgressBar _progressBar;
 
     private int _strength;
     private int _maxHealth;
