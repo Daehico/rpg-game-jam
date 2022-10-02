@@ -1,67 +1,49 @@
-using System;
-using System.Collections;
+using System.Threading;
 using Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerMovement))]
 public class PlayerAttack : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-
-    private const string AttackAnimation = "IsAttack";
-
-    private bool _isInBattle = false;
     private PlayerDamage _damage;
-    private EnemyHealth _enemyHealth;
     private PlayerMovement _playerMovement;
-    private Animator _animator;
+    private float _time, _cooldown = 1f;
 
+    [SerializeField] private Camera _camera;
+    [SerializeField] private float _minAttackDistance = 4f;
+    
+    public event UnityAction<EnemyHealth> OnAttack;
+    
     private void Awake()
     {
         _damage = FindObjectOfType<PlayerDamage>();
         _playerMovement = GetComponent<PlayerMovement>();
-        _animator = GetComponent<Animator>();
-        _camera = FindObjectOfType<Camera>();
-    }
-
-    public void StartBattle(EnemyHealth enemyHealth)
-    {
-        if (enemyHealth == null)
-            throw new NullReferenceException("Enemy can't be null");
-
-        _enemyHealth = enemyHealth;
-        _isInBattle = true;
     }
 
     private void Update()
     {
-        if (_isInBattle)
+        if (_time < Time.time && Input.GetMouseButton(1))
         {
-            if (Input.GetMouseButton(1))
-            {
-                Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out RaycastHit raycastHit))
-                {
-                    if (_enemyHealth.transform == raycastHit.transform)
-                    {
-                        _enemyHealth.ApplyDamage(_damage.Damage);
-                        _playerMovement.CantMove();
-                        _animator.SetBool(AttackAnimation,true);
-                        StartCoroutine(AnimationDelay(_animator.GetCurrentAnimatorClipInfo(0).Length));
-                    }
-                }              
-            }
-            else
+            if (Physics.Raycast(ray, out RaycastHit raycastHit) 
+                && raycastHit.transform.TryGetComponent(
+                        out EnemyHealth enemyHealth)
+                && IsAttckDistance(enemyHealth.transform.position))
             {
-                _playerMovement.CantMove();               
+                _time = Time.time + _cooldown;
+                enemyHealth.ApplyDamage(_damage.Damage);
+                _playerMovement.MoveCooldown(_time);
+                OnAttack?.Invoke(enemyHealth);
+                Debug.Log("Attack " + _damage.Damage + " EnemyHealth = " + enemyHealth.CurrentHealth);
             }
         }
     }
 
-    private IEnumerator AnimationDelay(float delay)
+    private bool IsAttckDistance(Vector3 enemyPosition)
     {
-        yield return new WaitForSeconds(delay);
-        _animator.SetBool(AttackAnimation, false);
+        var distance = (enemyPosition - transform.position).magnitude;
+        return distance < _minAttackDistance;
     }
 }

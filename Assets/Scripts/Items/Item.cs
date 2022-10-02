@@ -7,7 +7,6 @@ public abstract class Item : MonoBehaviour, IItem
     [SerializeField] private Sprite _icon;
 
     private Camera _camera;
-    private PlayerMovement _playerMovement;
     private ItemHolder _itemHolder;
     private bool _canTake = false;
 
@@ -16,7 +15,6 @@ public abstract class Item : MonoBehaviour, IItem
     private void Awake()
     {
         _camera = FindObjectOfType<Camera>();
-        _playerMovement = FindObjectOfType<PlayerMovement>();
     }
 
     public void Take(ItemHolder itemHolder)
@@ -48,14 +46,8 @@ public abstract class Item : MonoBehaviour, IItem
                 if (transform == raycastHit.transform)
                 {
                     Take(_itemHolder);
-                    _playerMovement.CantMove();
                 }
             }
         }
-        else
-        {
-            _playerMovement.CantMove();
-        }
     }
-
 }
