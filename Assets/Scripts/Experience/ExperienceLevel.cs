@@ -1,4 +1,5 @@
 using System;
+using DuloGames.UI;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,7 @@ namespace Experience
             
         [SerializeField] private int _maxExperience;
         [SerializeField] private TMP_Text _levelText;
+        [SerializeField] private UIProgressBar _progressBar;
 
         public event UnityAction OnLevelUp;
         
@@ -62,6 +64,7 @@ namespace Experience
 
         private void SetLevelText()
         {
+            _progressBar.fillAmount = _counter.Total / (float)_maxExperience;
             _levelText.text = _level.ToString();
         }
     }

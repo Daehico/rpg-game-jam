@@ -8,8 +8,8 @@ public class PlayerHealth : MonoBehaviour, IUpgradable
 {
     [SerializeField] private int _basicHealth;
     [SerializeField] private int _healthForOneStrength;
-    [SerializeField] private UIProgressBar _progressBar;
 
+    private UIProgressBar _progressBar;
     private int _strength;
     private int _maxHealth;
     private int _currenHealth;

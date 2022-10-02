@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Upgrade
 {
-    public class Upgrader : MonoBehaviour
+    public abstract class Upgrader : MonoBehaviour
     {
         private int _level;
 
@@ -25,7 +25,7 @@ namespace Upgrade
             }
         }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             UpgradeHandler();
         }
