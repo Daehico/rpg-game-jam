@@ -8,7 +8,7 @@ public class TwoHandedBlow : Spell
     [SerializeField] private Animator _animator;
     [SerializeField] private int _damage;
 
-    private const string IsAttack = "isAttack";
+    private const string IsAttack = "IsAttack";
 
     protected override void Cast(EnemyHealth target)
     {
