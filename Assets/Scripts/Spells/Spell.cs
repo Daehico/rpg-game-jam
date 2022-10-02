@@ -24,7 +24,7 @@ public abstract class Spell : MonoBehaviour
     private void Update()
     {
         if (CanCast != true)
-            ÑooldownCounter();
+            Ã‘ooldownCounter();
     }
 
     public abstract void Cast(Enemy.EnemyHealth target);
@@ -52,7 +52,7 @@ public abstract class Spell : MonoBehaviour
         }
     }  
 
-    private void ÑooldownCounter()
+    private void Ã‘ooldownCounter()
     {
         if (_timeRemaining > 0)
             _timeRemaining -= Time.deltaTime;

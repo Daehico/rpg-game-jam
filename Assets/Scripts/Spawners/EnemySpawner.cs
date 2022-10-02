@@ -8,6 +8,6 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        Instantiate(_enemyTemplate, transform);
+        var enemy = Instantiate(_enemyTemplate, transform);
     }
 }
