@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,12 +7,13 @@ namespace Enemy
     public class EnemyHealth : MonoBehaviour
     {
         [SerializeField] private int _maxHealth;
-        [SerializeField] private int _damage;
 
         private int _currentHealth;
 
         public event UnityAction OnDie;
-    
+
+        public int CurrentHealth => _currentHealth;
+        
         private void Awake()
         {
             _currentHealth = _maxHealth;
@@ -47,17 +47,6 @@ namespace Enemy
             {
                 _currentHealth = _maxHealth;
             }
-        }
-
-        public void MakeDamage(PlayerHealth playerHealth)
-        {
-            StartCoroutine(AttackWithDelay(playerHealth));
-        }
-
-        private IEnumerator AttackWithDelay(PlayerHealth playerHealth)
-        {
-            yield return new WaitForSeconds(3f);
-            playerHealth.ApplyDamage(_damage);
         }
 
         private void Die()
