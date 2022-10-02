@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Armor : Item
 {
-    [SerializeField] private float _armor;
+    [SerializeField] private int _armor;
 
-   
+    public int ArmorNumber => _armor;
 }

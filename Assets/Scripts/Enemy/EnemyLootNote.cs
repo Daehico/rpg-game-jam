@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class EnemyLootNote : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Item[] _items;
+    [SerializeField] private Item _requirdItem;
+
+    private Enemy.EnemyHealth _enemyHealth;
+
+    private void Awake()
     {
-        
+        _enemyHealth = GetComponent<Enemy.EnemyHealth>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        _enemyHealth.OnDie += Drop;
+    }
+
+    private void OnDisable()
+    {
+        _enemyHealth.OnDie -= Drop;
+    }
+
+    public void Drop()
+    {
+        int randomItemIndex =  Random.Range(0, _items.Length - 1);
+        Instantiate(_items[randomItemIndex], new Vector3(transform.position.x + Random.Range(1, 5), transform.position.y, transform.position.z + Random.Range(1, 3)), Quaternion.identity);
+
+        if(_requirdItem != null)
+        {
+            Instantiate(_requirdItem, new Vector3(transform.position.x + Random.Range(1, 5), transform.position.y, transform.position.z + Random.Range(1, 3)), Quaternion.identity);
+        }
     }
 }

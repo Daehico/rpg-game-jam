@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public abstract class Item : MonoBehaviour, IItem
 {
     [SerializeField] private Sprite _icon;
+    [SerializeField] private GameObject _itemModelTemplate;
 
     private Camera _camera;
     private ItemHolder _itemHolder;
     private bool _canTake = false;
 
     public Sprite Icon { get => _icon;}
+    public GameObject ItemTemplate => _itemModelTemplate;
 
     private void Awake()
     {
