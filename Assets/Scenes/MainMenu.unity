@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -204,7 +204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -85}
+  m_AnchoredPosition: {x: -1, y: -54}
   m_SizeDelta: {x: 700.7747, y: 794.4124}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283947110
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Chose your hero
+  m_text: Choose your hero
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f8e2af7f577aad48b78c7f49c2e105b, type: 2}
   m_sharedMaterial: {fileID: -1773472733463661202, guid: 3f8e2af7f577aad48b78c7f49c2e105b, type: 2}
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Warior
+  m_text: 'Warrior
 
 '
   m_isRightToLeft: 0
@@ -971,10 +971,10 @@ RectTransform:
   m_Father: {fileID: 635472244}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1190395618
 MonoBehaviour:
@@ -1185,8 +1185,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.5896993, y: 294}
-  m_SizeDelta: {x: 691.6, y: 236.3145}
+  m_AnchoredPosition: {x: -2.1692, y: 325}
+  m_SizeDelta: {x: 684.7592, y: 236.3145}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356216423
 MonoBehaviour:
@@ -1263,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00090408, y: -334}
+  m_AnchoredPosition: {x: 0.00090408, y: -303}
   m_SizeDelta: {x: 534.89, y: 88.057}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1356319942
@@ -1395,7 +1395,7 @@ Camera:
   m_GameObject: {fileID: 1405290009}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 3
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -1474,6 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -1661,7 +1662,7 @@ GameObject:
   - component: {fileID: 2062784525}
   - component: {fileID: 2062784524}
   m_Layer: 5
-  m_Name: Warior
+  m_Name: Warrior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
